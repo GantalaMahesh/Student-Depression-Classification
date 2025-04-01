@@ -17,7 +17,7 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-    name='Recruitment Management',
+    name='Student Depression Classification',
     version='0.0.1',
     author='Maheshchowhan',
     author_email='maheshchowhan28@gmail.com',
