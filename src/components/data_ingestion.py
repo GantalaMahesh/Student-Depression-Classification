@@ -24,6 +24,8 @@ class DataIngestion:
            df = pd.read_csv("notebook/data/student_depression_dataset.csv")
            logging.info('Read the Dataset as Dataframe')
 
+           df.drop(columns=['id', 'City'], inplace=True, axis=1)
+
            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
 
            df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
