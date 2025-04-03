@@ -3865,7 +3865,7 @@ Male,19.0,Student,3.0,0.0,9.39,1.0,0.0,'7-8 hours',Unhealthy,'Class 12',Yes,11.0
 Male,25.0,Student,1.0,0.0,5.16,5.0,0.0,'7-8 hours',Moderate,PhD,Yes,7.0,3.0,No,0
 Female,33.0,Student,2.0,0.0,6.99,3.0,0.0,'Less than 5 hours',Unhealthy,BCA,Yes,11.0,5.0,Yes,1
 Male,22.0,Student,3.0,0.0,8.04,3.0,0.0,'Less than 5 hours',Healthy,B.Ed,Yes,11.0,5.0,No,1
-Female,20.0,Student,1.0,0.0,6.83,1.0,0.0,'5-6 hours',Healthy,MBBS,No,9.0,?,Yes,0
+Female,20.0,Student,1.0,0.0,6.83,1.0,0.0,'5-6 hours',Healthy,MBBS,No,9.0,5.0,Yes,0
 Female,28.0,Student,3.0,0.0,7.28,4.0,0.0,'More than 8 hours',Unhealthy,MSc,Yes,0.0,3.0,Yes,0
 Female,32.0,Student,3.0,0.0,7.04,5.0,0.0,'More than 8 hours',Healthy,B.Tech,Yes,4.0,4.0,No,0
 Female,33.0,Student,1.0,0.0,7.09,3.0,0.0,'7-8 hours',Moderate,BE,Yes,6.0,1.0,No,0
@@ -17390,7 +17390,7 @@ Male,33.0,Student,3.0,0.0,9.56,2.0,0.0,'Less than 5 hours',Moderate,MA,No,6.0,2.
 Male,28.0,Student,4.0,0.0,7.52,2.0,0.0,'5-6 hours',Moderate,M.Com,Yes,10.0,5.0,No,1
 Female,20.0,Student,4.0,0.0,8.59,3.0,0.0,'5-6 hours',Moderate,'Class 12',Yes,3.0,4.0,Yes,1
 Female,23.0,Student,1.0,0.0,8.17,5.0,0.0,'7-8 hours',Unhealthy,BCA,Yes,0.0,5.0,Yes,0
-Male,29.0,Student,2.0,0.0,8.94,3.0,0.0,'Less than 5 hours',Unhealthy,B.Ed,No,12.0,?,Yes,0
+Male,29.0,Student,2.0,0.0,8.94,3.0,0.0,'Less than 5 hours',Unhealthy,B.Ed,No,12.0,5.0,Yes,0
 Male,20.0,Student,3.0,0.0,9.13,1.0,0.0,'5-6 hours',Moderate,'Class 12',Yes,3.0,2.0,Yes,1
 Female,24.0,Student,4.0,0.0,5.67,2.0,0.0,'More than 8 hours',Moderate,'Class 12',Yes,11.0,4.0,No,1
 Male,18.0,Student,4.0,0.0,8.71,2.0,0.0,'Less than 5 hours',Moderate,'Class 12',Yes,6.0,4.0,Yes,1
@@ -18511,7 +18511,7 @@ Female,25.0,Student,3.0,0.0,9.88,1.0,0.0,'More than 8 hours',Moderate,MBBS,No,12
 Male,23.0,Student,3.0,0.0,5.8,1.0,0.0,'Less than 5 hours',Healthy,B.Tech,Yes,7.0,4.0,Yes,1
 Male,24.0,Student,2.0,0.0,7.53,1.0,0.0,'5-6 hours',Moderate,MSc,Yes,9.0,2.0,No,1
 Male,26.0,Student,5.0,0.0,6.16,3.0,0.0,'Less than 5 hours',Moderate,MD,Yes,6.0,3.0,Yes,1
-Female,32.0,Student,3.0,0.0,5.64,1.0,0.0,'5-6 hours',Healthy,BCA,No,12.0,?,No,1
+Female,32.0,Student,3.0,0.0,5.64,1.0,0.0,'5-6 hours',Healthy,BCA,No,12.0,5.0,No,1
 Female,28.0,Student,3.0,0.0,5.64,1.0,0.0,'More than 8 hours',Moderate,MSc,Yes,11.0,1.0,Yes,1
 Male,30.0,Student,5.0,0.0,5.56,2.0,0.0,'More than 8 hours',Moderate,MA,No,5.0,4.0,No,1
 Male,21.0,Student,3.0,0.0,7.06,2.0,0.0,'Less than 5 hours',Moderate,B.Arch,No,6.0,2.0,Yes,0

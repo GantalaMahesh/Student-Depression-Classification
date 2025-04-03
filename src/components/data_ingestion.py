@@ -3,6 +3,7 @@ import sys
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -24,8 +25,12 @@ class DataIngestion:
            df = pd.read_csv("notebook/data/student_depression_dataset.csv")
            logging.info('Read the Dataset as Dataframe')
 
-           df.drop(columns=['id', 'City'], inplace=True, axis=1)
+           df.drop(columns=['id', 'City'], inplace=True)
 
+           df.loc[:, 'Financial Stress'] = df['Financial Stress'].replace('?', np.nan)
+           df.loc[:, 'Financial Stress'] = df['Financial Stress'].fillna(df['Financial Stress'].mode()[0])
+           df.loc[:, 'Financial Stress'] = df['Financial Stress'].astype(float)
+           
            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
 
            df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
