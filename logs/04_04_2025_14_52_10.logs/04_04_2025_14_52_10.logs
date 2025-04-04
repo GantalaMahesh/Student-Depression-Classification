@@ -1,0 +1,6 @@
+[2025-04-04 14:52:11,697] 25, root - INFO - Entered the data ingestion method or component
+[2025-04-04 14:52:11,736] 29, root - INFO - Read the Dataset as Dataframe
+[2025-04-04 14:52:11,866] 43, root - INFO - Train Test split Initiated
+[2025-04-04 14:52:11,989] 50, root - INFO - Ingestion of the Data is completed
+[2025-04-04 14:52:12,058] 95, root - INFO - Train and test data loaded.
+[2025-04-04 14:52:12,127] 109, root - INFO - Target encoding applied to Degree and Profession columns.
