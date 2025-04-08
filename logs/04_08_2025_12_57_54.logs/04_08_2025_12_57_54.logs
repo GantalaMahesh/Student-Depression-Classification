@@ -1,0 +1,14 @@
+[2025-04-08 12:57:54,647] 160, numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-04-08 12:57:58,199] 28, root - INFO - Entered the data ingestion method or component
+[2025-04-08 12:57:58,239] 32, root - INFO - Read the Dataset as Dataframe
+[2025-04-08 12:57:58,361] 46, root - INFO - Train Test split Initiated
+[2025-04-08 12:57:58,482] 53, root - INFO - Ingestion of the Data is completed
+[2025-04-08 12:57:58,549] 95, root - INFO - Train and test data loaded.
+[2025-04-08 12:57:58,580] 109, root - INFO - Target encoding applied to Degree and Profession columns.
+[2025-04-08 12:57:58,582] 73, root - INFO - Numerical, Nominal, Ordinal, and Binary pipelines set up.
+[2025-04-08 12:57:58,583] 119, root - INFO - Fitting preprocessor on training data.
+[2025-04-08 12:57:58,648] 131, root - INFO - Preprocessing object saved successfully.
+[2025-04-08 12:57:58,649] 36, root - INFO - split the training and test input data
+[2025-04-08 12:57:58,688] 69, root - INFO - Best individual model: Logistic Regression with accuracy: 0.8342590933524457
+[2025-04-08 12:57:58,688] 82, root - INFO - Training Voting Classifier
+[2025-04-08 12:58:02,966] 89, root - INFO - Voting Classifier Accuracy: 0.8328256584841426

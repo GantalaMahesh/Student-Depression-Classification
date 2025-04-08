@@ -6,5 +6,6 @@ xgboost
 catboost
 scikit-learn
 category_encoders
+lightgbm
 dill
 #-e .

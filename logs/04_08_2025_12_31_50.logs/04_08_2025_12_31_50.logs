@@ -1,0 +1,12 @@
+[2025-04-08 12:31:50,845] 160, numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-04-08 12:31:54,145] 28, root - INFO - Entered the data ingestion method or component
+[2025-04-08 12:31:54,190] 32, root - INFO - Read the Dataset as Dataframe
+[2025-04-08 12:31:54,319] 46, root - INFO - Train Test split Initiated
+[2025-04-08 12:31:54,440] 53, root - INFO - Ingestion of the Data is completed
+[2025-04-08 12:31:54,511] 95, root - INFO - Train and test data loaded.
+[2025-04-08 12:31:54,540] 109, root - INFO - Target encoding applied to Degree and Profession columns.
+[2025-04-08 12:31:54,543] 73, root - INFO - Numerical, Nominal, Ordinal, and Binary pipelines set up.
+[2025-04-08 12:31:54,543] 119, root - INFO - Fitting preprocessor on training data.
+[2025-04-08 12:31:54,606] 131, root - INFO - Preprocessing object saved successfully.
+[2025-04-08 12:31:54,606] 35, root - INFO - split the training and test input data
+[2025-04-08 12:31:54,638] 72, root - INFO - Best found model on both training and test dataset
