@@ -20,7 +20,10 @@ from catboost import CatBoostClassifier
 from sklearn.metrics import recall_score, classification_report
 
 
+from sklearn.exceptions import ConvergenceWarning
+import warnings
 
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 
 from src.utils import save_object, evaluate_models
@@ -58,8 +61,77 @@ class ModelTrainer:
                "LightGBM": LGBMClassifier(),
                "CatBoost": CatBoostClassifier(verbose=0)
            }
+
+           params = {
+                "Logistic Regression": {
+                    'C': [0.01, 0.1, 1, 10, 100],
+                    'penalty': ['l2'],  # You can also try 'none' or 'elasticnet'
+                    'solver': ['liblinear', 'saga'],
+                    'class_weight': [None, 'balanced'],
+                    'max_iter':[1000]
+                },
+                       
+                
+                "Random Forest": {
+                    'n_estimators': [50, 100, 200],
+                    'max_depth': [None, 10, 20, 30],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4],
+                    'class_weight': [None, 'balanced']
+                },
+                "Decision Tree": {
+                    'criterion': ['gini', 'entropy'],
+                    'max_depth': [None, 10, 20, 30],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4],
+                    'class_weight': [None, 'balanced']
+                },
+                "Support Vector Machine": {
+                    'C': [0.1, 1, 10, 100],
+                    'kernel': ['linear', 'rbf', 'poly'],
+                    'gamma': ['scale', 'auto'],
+                    'class_weight': [None, 'balanced']
+                },
+                "K-Nearest Neighbors": {
+                    'n_neighbors': [3, 5, 7, 11],
+                    'weights': ['uniform', 'distance'],
+                    'metric': ['euclidean', 'manhattan']
+                },
+                "Naive Bayes": {
+                    # Usually not many hyperparameters to tune here
+                },
+                "AdaBoost": {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.1, 1]
+                },
+                "Gradient Boosting": {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'subsample': [0.8, 1.0],
+                    'max_depth': [3, 5, 7]
+                },
+                "XGBoost": {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'max_depth': [3, 5, 7],
+                    'scale_pos_weight': [1, 3, 5]  # Useful for imbalanced datasets
+                },
+                "LightGBM": {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'num_leaves': [31, 50, 100],
+                    'class_weight': [None, 'balanced']
+                },
+                "CatBoost": {
+                    'depth': [4, 6, 8],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'iterations': [100, 200],
+                    'scale_pos_weight': [1, 3, 5]
+                }
+            }
+
            
-           model_report:dict=evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models)
+           model_report:dict=evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, param=params)
 
            # To get the best model score
            best_model_score = max(sorted(model_report.values()))
