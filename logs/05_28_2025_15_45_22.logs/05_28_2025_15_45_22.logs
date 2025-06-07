@@ -1,0 +1,12 @@
+[2025-05-28 15:45:44,609] 28, root - INFO - Entered the data ingestion method or component
+[2025-05-28 15:45:44,664] 32, root - INFO - Read the Dataset as Dataframe
+[2025-05-28 15:45:44,850] 46, root - INFO - Train Test split Initiated
+[2025-05-28 15:45:45,053] 53, root - INFO - Ingestion of the Data is completed
+[2025-05-28 15:45:45,146] 95, root - INFO - Train and test data loaded.
+[2025-05-28 15:45:45,233] 109, root - INFO - Target encoding applied to Degree and Profession columns.
+[2025-05-28 15:45:45,237] 73, root - INFO - Numerical, Nominal, Ordinal, and Binary pipelines set up.
+[2025-05-28 15:45:45,237] 119, root - INFO - Fitting preprocessor on training data.
+[2025-05-28 15:45:45,332] 131, root - INFO - Preprocessing object saved successfully.
+[2025-05-28 15:45:45,334] 41, root - INFO - split the training and test input data
+[2025-05-28 15:46:17,506] 145, root - INFO - Best individual model: Logistic Regression with recall: 0.8730697961704756
+[2025-05-28 15:46:17,506] 150, root - INFO - Best model found: Logistic Regression with score: 0.8730697961704756

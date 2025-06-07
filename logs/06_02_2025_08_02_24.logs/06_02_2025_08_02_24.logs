@@ -1,0 +1,27 @@
+[2025-06-02 08:02:25,032] 97, werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.118.212:5000
+[2025-06-02 08:02:25,032] 97, werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2025-06-02 08:08:20,838] 97, werkzeug - INFO - 127.0.0.1 - - [02/Jun/2025 08:08:20] "GET / HTTP/1.1" 200 -
+[2025-06-02 08:08:20,929] 97, werkzeug - INFO - 127.0.0.1 - - [02/Jun/2025 08:08:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-06-02 08:09:06,347] 97, werkzeug - INFO - 127.0.0.1 - - [02/Jun/2025 08:09:06] "GET /predictdata HTTP/1.1" 200 -
+[2025-06-02 08:11:32,277] 875, app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Student Depression Classification\app.py", line 26, in predict_datapoint
+    Academic_Pressure=int(request.form.get('Academic_Pressure')),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '3.0'
+[2025-06-02 08:11:32,283] 97, werkzeug - INFO - 127.0.0.1 - - [02/Jun/2025 08:11:32] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -

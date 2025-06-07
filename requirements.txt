@@ -8,4 +8,5 @@ scikit-learn
 category_encoders
 lightgbm
 dill
+Flask
 #-e .

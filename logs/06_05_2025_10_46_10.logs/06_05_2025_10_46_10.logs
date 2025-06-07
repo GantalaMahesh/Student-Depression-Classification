@@ -1,0 +1,10 @@
+[2025-06-05 10:46:22,097] 30, root - INFO - Entered the data ingestion method or component
+[2025-06-05 10:46:22,152] 34, root - INFO - Read the Dataset as Dataframe
+[2025-06-05 10:46:22,293] 51, root - INFO - Train Test split Initiated
+[2025-06-05 10:46:22,419] 61, root - INFO - Ingestion of the Data is completed
+[2025-06-05 10:46:22,509] 123, root - INFO - Train and test data loaded and cleaned.
+[2025-06-05 10:46:22,546] 137, root - INFO - Target encoding applied to Degree and Profession columns.
+[2025-06-05 10:46:22,549] 94, root - INFO - Numerical, Nominal, Ordinal, and Binary pipelines set up.
+[2025-06-05 10:46:22,549] 149, root - INFO - Fitting preprocessor on training data.
+[2025-06-05 10:46:22,654] 172, root - INFO - Preprocessing object (with target encoder) saved successfully.
+[2025-06-05 10:46:22,656] 41, root - INFO - split the training and test input data
