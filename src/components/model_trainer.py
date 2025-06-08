@@ -107,6 +107,10 @@ class ModelTrainer:
                 print(
                     f"{name}: Recall = {scores['recall']:.4f}, Accuracy = {scores['accuracy']:.4f}")
 
+            for name, scores in model_report.items():
+                logging.info(
+                    f"{name} - Recall: {scores['recall']:.4f}, Accuracy: {scores['accuracy']:.4f}")
+
             # Select best model based on recall and accuracy (as tiebreaker)
             best_model_name = max(
                 model_report.items(),
