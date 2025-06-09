@@ -126,7 +126,9 @@ class DataTransformation:
             cat_target_encoding_features = ['Degree', 'Profession']
 
             # Apply Target Encoding before ColumnTransformer
-            target_encoder = ce.TargetEncoder()
+            target_encoder = ce.TargetEncoder(
+                handle_unknown='value', handle_missing='value')
+
             train_df[cat_target_encoding_features] = target_encoder.fit_transform(
                 train_df[cat_target_encoding_features], train_df[target_column_name]
             )

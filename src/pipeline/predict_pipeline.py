@@ -1,54 +1,77 @@
-"""
-import sys
 import os
+import sys
 import pandas as pd
 from src.exception import CustomException
 from src.utils import load_object
 
 
 class PredictPipeline:
-    def __init__(self):
-        pass
+    """
+    Handles loading of pre-trained model and preprocessing steps,
+    and performs prediction on new input data.
+    """
 
-    def predict(self, features):
+    def __init__(self):
         try:
             model_path = os.path.join("artifacts", "model.pkl")
             preprocessor_path = os.path.join("artifacts", "preprocessor.pkl")
-            model = load_object(file_path=model_path)
+
+            self.model = load_object(file_path=model_path)
             preprocessing_bundle = load_object(file_path=preprocessor_path)
-            # Extract target_encoder and preprocessor
-            target_encoder = preprocessing_bundle["target_encoder"]
-            preprocessor = preprocessing_bundle["preprocessor"]
 
-            # Apply target encoding on Degree and Profession before transformation
-            features[["Degree", "Profession"]] = target_encoder.transform(
-                features[["Degree", "Profession"]])
+            self.target_encoder = preprocessing_bundle["target_encoder"]
+            self.preprocessor = preprocessing_bundle["preprocessor"]
 
-            data_scaled = preprocessor.transform(features)
-            preds = model.predict(data_scaled)
-            return preds
         except Exception as e:
-            raise CustomException(e, sys)
+            raise CustomException(
+                f"Error loading model or preprocessor: {e}", sys)
+
+    def predict(self, features: pd.DataFrame):
+        try:
+            # ✅ Clean and cast input
+            features = features.fillna("Unknown")
+            features[["Degree", "Profession"]] = features[[
+                "Degree", "Profession"]].astype(str)
+
+            # ✅ Apply target encoding
+            features[["Degree", "Profession"]] = self.target_encoder.transform(
+                features[["Degree", "Profession"]]
+            )
+
+            # ✅ Apply preprocessing
+            transformed_features = self.preprocessor.transform(features)
+
+            # ✅ Predict
+            predictions = self.model.predict(transformed_features)
+            return predictions
+
+        except Exception as e:
+            raise CustomException(f"Prediction failed: {e}", sys)
 
 
 class CustomData:
-    def __init__(self,
-                 Gender: str,
-                 Age: int,
-                 Profession: str,
-                 Academic_Pressure: int,
-                 Work_Pressure: int,
-                 CGPA: float,
-                 Study_Satisfaction: int,
-                 Job_Satisfaction: int,
-                 Sleep_Duration: str,
-                 Dietary_Habits: str,
-                 Degree: str,
-                 Have_you_ever_had_suicidal_thoughts: str,
-                 Work_Study_Hours: int,
-                 Financial_Stress: int,
-                 Family_History_of_Mental_Illness: str):
+    """
+    Converts raw user inputs into a pandas DataFrame suitable for model prediction.
+    """
 
+    def __init__(
+        self,
+        Gender: str,
+        Age: int,
+        Profession: str,
+        Academic_Pressure: int,
+        Work_Pressure: int,
+        CGPA: float,
+        Study_Satisfaction: int,
+        Job_Satisfaction: int,
+        Sleep_Duration: str,
+        Dietary_Habits: str,
+        Degree: str,
+        Have_you_ever_had_suicidal_thoughts: str,
+        Work_Study_Hours: int,
+        Financial_Stress: int,
+        Family_History_of_Mental_Illness: str,
+    ):
         self.Gender = Gender
         self.Age = Age
         self.Profession = Profession
@@ -65,7 +88,13 @@ class CustomData:
         self.Financial_Stress = Financial_Stress
         self.Family_History_of_Mental_Illness = Family_History_of_Mental_Illness
 
-    def get_data_as_data_frame(self):
+    def get_data_as_data_frame(self) -> pd.DataFrame:
+        """
+        Creates a DataFrame from the input data.
+
+        Returns:
+            pd.DataFrame: Single-row DataFrame for prediction.
+        """
         try:
             data_dict = {
                 "Gender": [self.Gender],
@@ -82,9 +111,10 @@ class CustomData:
                 "Have you ever had suicidal thoughts ?": [self.Have_you_ever_had_suicidal_thoughts],
                 "Work/Study Hours": [self.Work_Study_Hours],
                 "Financial Stress": [self.Financial_Stress],
-                "Family History of Mental Illness": [self.Family_History_of_Mental_Illness]
+                "Family History of Mental Illness": [self.Family_History_of_Mental_Illness],
             }
             return pd.DataFrame(data_dict)
+
         except Exception as e:
-            raise CustomException(e, sys)
-"""
+            raise CustomException(
+                f"Error creating DataFrame from user input: {e}", sys)
