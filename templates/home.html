@@ -34,10 +34,12 @@
                     <option value="Female">Female</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label>Age</label>
                 <input type="number" class="form-control" name="Age" min="18" max="60" required>
             </div>
+
             <div class="form-group">
                 <label>Profession</label>
                 <select class="form-control" name="Profession" required>
@@ -58,26 +60,32 @@
                     <option value="Entrepreneur">Entrepreneur</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label>Academic Pressure (0-5)</label>
+                <label>Academic Pressure (0–5)</label>
                 <input type="number" class="form-control" name="Academic_Pressure" min="0" max="5" required>
             </div>
+
             <div class="form-group">
-                <label>Work Pressure (0-5)</label>
+                <label>Work Pressure (0–5)</label>
                 <input type="number" class="form-control" name="Work_Pressure" min="0" max="5" required>
             </div>
+
             <div class="form-group">
                 <label>CGPA (0.00 to 10.00)</label>
                 <input type="number" class="form-control" name="CGPA" min="0" max="10" step="0.01" required>
             </div>
+
             <div class="form-group">
-                <label>Study Satisfaction (0-6)</label>
+                <label>Study Satisfaction (0–6)</label>
                 <input type="number" class="form-control" name="Study_Satisfaction" min="0" max="6" required>
             </div>
+
             <div class="form-group">
-                <label>Job Satisfaction (0-4)</label>
+                <label>Job Satisfaction (0–4)</label>
                 <input type="number" class="form-control" name="Job_Satisfaction" min="0" max="4" required>
             </div>
+
             <div class="form-group">
                 <label>Sleep Duration</label>
                 <select class="form-control" name="Sleep_Duration" required>
@@ -89,6 +97,7 @@
                     <option value="Others">Others</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label>Dietary Habits</label>
                 <select class="form-control" name="Dietary_Habits" required>
@@ -99,43 +108,57 @@
                     <option value="Others">Others</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label>Degree</label>
                 <input type="text" class="form-control" name="Degree" required>
             </div>
+
             <div class="form-group">
                 <label>Have you ever had suicidal thoughts?</label>
-                <select class="form-control" name="Suicidal_Thoughts" required>
+                <select class="form-control" name="Have_you_ever_had_suicidal_thoughts" required>
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label>Work/Study Hours (0-12)</label>
+                <label>Work/Study Hours (0–12)</label>
                 <input type="number" class="form-control" name="Work_Study_Hours" min="0" max="12" required>
             </div>
+
             <div class="form-group">
-                <label>Financial Stress (1-5)</label>
+                <label>Financial Stress (1–5)</label>
                 <input type="number" class="form-control" name="Financial_Stress" min="1" max="5" required>
             </div>
+
             <div class="form-group">
                 <label>Family History of Mental Illness</label>
-                <select class="form-control" name="Family_History_Mental_Illness" required>
+                <select class="form-control" name="Family_History_of_Mental_Illness" required>
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </div>
+
             <button type="submit" class="btn btn-primary">Predict Depression</button>
         </form>
-
         {% if results is not none %}
+            {% if results is not none and results != "Prediction Error" and results|length > 1 %}
             <hr>
-            <div class="alert alert-info mt-3" role="alert">
-                <p><strong>Prediction:</strong> {{ 'Yes' if results == 1 else 'No' }}</p>
-            </div>
+                <div class="alert alert-info mt-3" role="alert">
+                    <p><strong>Prediction:</strong> {{ 'Depressed' if results[0] == 1 else 'Not Depressed' }}</p>
+                    <p><strong>Probability of Depression:</strong> {{ (results[1] * 100) | round(2) }}%</p>
+                </div>
+            {% elif results == "Prediction Error" %}
+            <hr>
+                <div class="alert alert-danger mt-3" role="alert">
+                    <p><strong>Error:</strong> Prediction Failed. Please check your input.</p>
+                </div>
+            {% endif %}
         {% endif %}
+
     </div>
 </body>
 </html>

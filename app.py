@@ -2,7 +2,6 @@ from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
 import os
-
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
@@ -17,7 +16,7 @@ def index():
 @app.route('/predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == 'GET':
-        return render_template('home.html')
+        return render_template('home.html', results=None)
     else:
         try:
             data = CustomData(
@@ -41,11 +40,12 @@ def predict_datapoint():
                     'Family_History_of_Mental_Illness')
             )
 
-            pred_df = data.get_data_as_data_frame()
-            predict_pipeline = PredictPipeline()
-            results = predict_pipeline.predict(pred_df)
+            final_df = data.get_data_as_data_frame()
 
-            return render_template('home.html', results=int(results[0]))
+            pipeline = PredictPipeline()
+            pred_value, pred_prob = pipeline.predict(final_df)
+
+            return render_template('home.html', results=[pred_value, round(pred_prob, 2)])
 
         except Exception as e:
             print("Prediction Error:", str(e))
@@ -53,4 +53,4 @@ def predict_datapoint():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=8000)

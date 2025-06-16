@@ -1,0 +1,18 @@
+[2025-06-16 11:12:20,874] 30, root - INFO - Entered the data ingestion method or component
+[2025-06-16 11:12:20,915] 34, root - INFO - Read the Dataset as Dataframe
+[2025-06-16 11:12:21,048] 51, root - INFO - Train Test split Initiated
+[2025-06-16 11:12:21,174] 61, root - INFO - Ingestion of the Data is completed
+[2025-06-16 11:12:21,269] 123, root - INFO - Train and test data loaded and cleaned.
+[2025-06-16 11:12:21,300] 139, root - INFO - Target encoding applied to Degree and Profession columns.
+[2025-06-16 11:12:21,302] 94, root - INFO - Numerical, Nominal, Ordinal, and Binary pipelines set up.
+[2025-06-16 11:12:21,302] 151, root - INFO - Fitting preprocessor on training data.
+[2025-06-16 11:12:21,376] 174, root - INFO - Preprocessing object (with target encoder) saved successfully.
+[2025-06-16 11:12:21,378] 177, root - INFO - Splitting training and test data.
+[2025-06-16 11:22:43,671] 252, root - INFO - Logistic Regression - Recall: 0.8811, Accuracy: 0.8378, F2: 0.8738
+[2025-06-16 11:22:43,672] 252, root - INFO - Random Forest - Recall: 0.8752, Accuracy: 0.8328, F2: 0.8685
+[2025-06-16 11:22:43,672] 252, root - INFO - Decision Tree - Recall: 0.8481, Accuracy: 0.8142, F2: 0.8453
+[2025-06-16 11:22:43,672] 252, root - INFO - K-Nearest Neighbors - Recall: 0.8666, Accuracy: 0.8074, F2: 0.8554
+[2025-06-16 11:22:43,672] 252, root - INFO - Naive Bayes - Recall: 0.8061, Accuracy: 0.8217, F2: 0.8193
+[2025-06-16 11:22:43,672] 252, root - INFO - AdaBoost - Recall: 0.8922, Accuracy: 0.8292, F2: 0.8784
+[2025-06-16 11:22:43,672] 252, root - INFO - Gradient Boosting - Recall: 0.9163, Accuracy: 0.8205, F2: 0.8910
+[2025-06-16 11:22:43,672] 262, root - INFO - Best model: Gradient Boosting

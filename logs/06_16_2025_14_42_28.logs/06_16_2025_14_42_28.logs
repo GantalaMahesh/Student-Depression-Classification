@@ -1,0 +1,110 @@
+[2025-06-16 14:42:29,408] 97, werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.29.212:8000
+[2025-06-16 14:42:29,408] 97, werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2025-06-16 14:42:34,361] 875, app - ERROR - Exception on /predictdata [GET]
+Traceback (most recent call last):
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Student Depression Classification\app.py", line 79, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Student Depression Classification\templates\home.html", line 299, in top-level template code
+    <p><strong>Probability of Depression:</strong> {{ (results[1] * 100) | round(2) }}%</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[2025-06-16 14:42:34,435] 97, werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 14:42:34] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -
+[2025-06-16 14:42:35,965] 875, app - ERROR - Exception on /predictdata [GET]
+Traceback (most recent call last):
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Student Depression Classification\app.py", line 79, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Student Depression Classification\templates\home.html", line 299, in top-level template code
+    <p><strong>Probability of Depression:</strong> {{ (results[1] * 100) | round(2) }}%</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[2025-06-16 14:42:35,967] 97, werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 14:42:35] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -
+[2025-06-16 14:42:36,964] 875, app - ERROR - Exception on /predictdata [GET]
+Traceback (most recent call last):
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Student Depression Classification\app.py", line 79, in predict_datapoint
+    return render_template('home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Student Depression Classification\templates\home.html", line 299, in top-level template code
+    <p><strong>Probability of Depression:</strong> {{ (results[1] * 100) | round(2) }}%</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Student Depression Classification\venv\Lib\site-packages\jinja2\environment.py", line 471, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'results' is undefined
+[2025-06-16 14:42:36,968] 97, werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 14:42:36] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -

@@ -28,22 +28,36 @@ class PredictPipeline:
 
     def predict(self, features: pd.DataFrame):
         try:
-            # ✅ Clean and cast input
+            # ✅ Fill missing values
             features = features.fillna("Unknown")
+
+            # ✅ Cast to string for encoding
             features[["Degree", "Profession"]] = features[[
                 "Degree", "Profession"]].astype(str)
 
-            # ✅ Apply target encoding
-            features[["Degree", "Profession"]] = self.target_encoder.transform(
-                features[["Degree", "Profession"]]
-            )
+            # ✅ Handle unknown categories by using try-except or custom fallback
+            try:
+                features[["Degree", "Profession"]] = self.target_encoder.transform(
+                    features[["Degree", "Profession"]]
+                )
+            except Exception as e:
+                # Fallback: replace unknowns with a neutral value like the mean
+                for col in ["Degree", "Profession"]:
+                    known_categories = self.target_encoder.mapping_[
+                        col].dropna()
+                    default_value = known_categories.mean()
+                    features[col] = features[col].map(
+                        self.target_encoder.mapping_[col]
+                    ).fillna(default_value)
 
             # ✅ Apply preprocessing
             transformed_features = self.preprocessor.transform(features)
 
-            # ✅ Predict
-            predictions = self.model.predict(transformed_features)
-            return predictions
+            # ✅ Predict class and probability
+            prediction = self.model.predict(transformed_features)
+            probability = self.model.predict_proba(transformed_features)[0][1]
+
+            return prediction[0], probability
 
         except Exception as e:
             raise CustomException(f"Prediction failed: {e}", sys)

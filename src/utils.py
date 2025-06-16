@@ -3,7 +3,7 @@ import sys
 import dill
 
 from src.exception import CustomException
-from sklearn.metrics import recall_score, accuracy_score
+from sklearn.metrics import recall_score, accuracy_score, fbeta_score
 from sklearn.model_selection import GridSearchCV
 
 
@@ -28,7 +28,8 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
             para = param.get(model_name, {})
 
             if para:
-                gs = GridSearchCV(model, para, cv=3, n_jobs=-1)
+                gs = GridSearchCV(model, para, cv=5,
+                                  scoring='recall', n_jobs=-1)
                 gs.fit(X_train, y_train)
                 model.set_params(**gs.best_params_)
 
@@ -38,13 +39,16 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
 
             recall = recall_score(y_test, y_test_pred)
             accuracy = accuracy_score(y_test, y_test_pred)
+            f2 = fbeta_score(y_test, y_test_pred, beta=2)
 
             report[model_name] = {
                 "recall": recall,
-                "accuracy": accuracy
+                "accuracy": accuracy,
+                "f2": f2
             }
 
-            print(f"{model_name} ✅ Recall: {recall:.4f}, Accuracy: {accuracy:.4f}\n")
+            print(
+                f"{model_name} ✅ Recall: {recall:.4f}, Accuracy: {accuracy:.4f}, F2 Score: {f2:.4f}\n")
 
         return report
 
